@@ -1,9 +1,9 @@
 import flixel.*;
-import flixel.system.FlxModding;
-import flixel.system.scripting.FlxHScript;
+import flixel.text.*;
 
 using StringTools;
 
 #if sys
 import sys.FileSystem;
+import sys.io.File;
 #end

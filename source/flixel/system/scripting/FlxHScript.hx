@@ -206,7 +206,7 @@ private class FlxInterp extends Interp
 }
 #end
 
-private class FlxScriptColor
+class FlxScriptColor
 {
 	public static var TRANSPARENT:FlxColor = 0x00000000;
 	public static var WHITE:FlxColor = 0xFFFFFFFF;

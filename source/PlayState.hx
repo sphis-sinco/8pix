@@ -1,46 +1,31 @@
 package;
 
-import flixel.group.FlxGroup.FlxTypedGroup;
-
 class PlayState extends FlxState
 {
-	public var scripts:FlxTypedGroup<FlxHScript> = new FlxTypedGroup<FlxHScript>();
+	public var sprite1:FlxSprite;
+	public var sprite2:FlxSprite;
+	public var sprite3:FlxSprite;
+	public var sprite4:FlxSprite;
+
+	public var text1:FlxText;
+	public var text2:FlxText;
+	public var text3:FlxText;
+	public var text4:FlxText;
 
 	override public function create()
 	{
 		super.create();
 
-		add(scripts);
-
-		#if sys
-		var readDirectory = function(dir:String) {}
-
-		readDirectory = function(dir:String)
-		{
-			trace(dir);
-			if (!FileSystem.exists(dir))
-				return;
-			for (file in FileSystem.readDirectory(dir))
-			{
-				if (file.endsWith(Assets.HSCRIPT_EXT))
-				{
-					trace(file);
-					scripts.add(new FlxHScript('$dir/$file'));
-				}
-				else if (!file.contains('.'))
-				{
-					readDirectory('$dir/$file');
-				}
-			}
+		@:privateAccess {
+			ScriptsManager.loadScripts();
 		}
-		readDirectory(Assets.getAssetPath('scripts'));
-		#end
 
-		for (script in scripts) {}
+		ScriptsManager.callScript('gameplay_create');
 	}
 
 	override public function update(elapsed:Float)
 	{
 		super.update(elapsed);
+		ScriptsManager.callScript('gameplay_update', [elapsed]);
 	}
 }
