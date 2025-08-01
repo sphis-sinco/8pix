@@ -13,12 +13,12 @@ function gameplay_create()
 
 function gameplay_update(elapsed:Float)
 {
-	if (FlxG.keys.justReleased.LEFT)
+	if (FlxG.keys.pressed.LEFT)
 		PlayState.sprite1.x -= 5;
-	if (FlxG.keys.justReleased.RIGHT)
+	else if (FlxG.keys.pressed.RIGHT)
 		PlayState.sprite1.x += 5;
-	if (FlxG.keys.justReleased.UP)
+	if (FlxG.keys.pressed.UP)
 		PlayState.sprite1.y -= 5;
-	if (FlxG.keys.justReleased.DOWN)
+	else if (FlxG.keys.pressed.DOWN)
 		PlayState.sprite1.y += 5;
 }
