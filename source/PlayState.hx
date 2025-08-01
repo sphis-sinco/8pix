@@ -12,6 +12,8 @@ class PlayState extends FlxState
 	public static var text3:FlxText;
 	public static var text4:FlxText;
 
+	public static var addObject = function(object:FlxBasic) {}
+
 	override public function create()
 	{
 		super.create();
@@ -20,15 +22,7 @@ class PlayState extends FlxState
 			ScriptsManager.loadScripts();
 		}
 
-		add(sprite1);
-		add(sprite2);
-		add(sprite3);
-		add(sprite4);
-
-		add(text1);
-		add(text2);
-		add(text3);
-		add(text4);
+		addObject = function(object:FlxBasic) add(object);
 
 		ScriptsManager.callScript('gameplay_create');
 	}
