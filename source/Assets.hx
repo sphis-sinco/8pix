@@ -1,4 +1,3 @@
-import flixel.system.FlxModding;
 import haxe.Json;
 
 class Assets

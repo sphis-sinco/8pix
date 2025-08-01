@@ -1,20 +1,9 @@
 package;
 
 import flixel.input.keyboard.FlxKey;
-import flixel.system.FlxModding;
 
 class PlayState extends FlxState
 {
-	public static var sprite1:FlxSprite;
-	public static var sprite2:FlxSprite;
-	public static var sprite3:FlxSprite;
-	public static var sprite4:FlxSprite;
-
-	public static var text1:FlxText;
-	public static var text2:FlxText;
-	public static var text3:FlxText;
-	public static var text4:FlxText;
-
 	public static var addObject = function(object:FlxBasic) {}
 
 	public static var MODMENU_KEY:FlxKey = ESCAPE;
@@ -23,10 +12,6 @@ class PlayState extends FlxState
 	override public function create()
 	{
 		super.create();
-
-		@:privateAccess {
-			ScriptsManager.loadScripts();
-		}
 
 		addObject = function(object:FlxBasic) add(object);
 
@@ -39,7 +24,7 @@ class PlayState extends FlxState
 
 		if (FlxG.keys.anyJustReleased([MODMENU_KEY]))
 		{
-			FlxG.switchState(() -> new PlayState());
+			FlxG.switchState(() -> new ModMenu());
 		}
 
 		if (FlxG.keys.anyJustReleased([HOTRELOAD_KEY]))

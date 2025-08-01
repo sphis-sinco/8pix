@@ -1,4 +1,5 @@
 import flixel.*;
+import flixel.system.FlxModding;
 import flixel.text.*;
 
 using StringTools;
