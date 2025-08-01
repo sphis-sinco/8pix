@@ -12,6 +12,8 @@ class PlayState extends FlxState
 		readDirectory = function(dir:String)
 		{
 			trace(dir);
+			if (!FileSystem.exists(dir))
+				return;
 			for (file in FileSystem.readDirectory(dir))
 			{
 				if (file.endsWith(Assets.HSCRIPT_EXT))
