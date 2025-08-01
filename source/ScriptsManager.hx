@@ -76,6 +76,7 @@ class ScriptsManager
 
 		setScript('PlayState', PlayState);
 
+		setScript('Assets', Assets);
 		setScript('ScriptsManager', ScriptsManager);
 
 		setScript("FlxG", FlxG);

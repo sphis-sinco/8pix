@@ -2,15 +2,15 @@ package;
 
 class PlayState extends FlxState
 {
-	public var sprite1:FlxSprite;
-	public var sprite2:FlxSprite;
-	public var sprite3:FlxSprite;
-	public var sprite4:FlxSprite;
+	public static var sprite1:FlxSprite;
+	public static var sprite2:FlxSprite;
+	public static var sprite3:FlxSprite;
+	public static var sprite4:FlxSprite;
 
-	public var text1:FlxText;
-	public var text2:FlxText;
-	public var text3:FlxText;
-	public var text4:FlxText;
+	public static var text1:FlxText;
+	public static var text2:FlxText;
+	public static var text3:FlxText;
+	public static var text4:FlxText;
 
 	override public function create()
 	{
