@@ -1,5 +1,8 @@
 package;
 
+import flixel.input.keyboard.FlxKey;
+import flixel.system.FlxModding;
+
 class PlayState extends FlxState
 {
 	public static var sprite1:FlxSprite;
@@ -13,6 +16,9 @@ class PlayState extends FlxState
 	public static var text4:FlxText;
 
 	public static var addObject = function(object:FlxBasic) {}
+
+	public static var MODMENU_KEY:FlxKey = ESCAPE;
+	public static var HOTRELOAD_KEY:FlxKey = R;
 
 	override public function create()
 	{
@@ -30,6 +36,18 @@ class PlayState extends FlxState
 	override public function update(elapsed:Float)
 	{
 		super.update(elapsed);
+
+		if (FlxG.keys.anyJustReleased([MODMENU_KEY]))
+		{
+			FlxG.switchState(() -> new PlayState());
+		}
+
+		if (FlxG.keys.anyJustReleased([HOTRELOAD_KEY]))
+		{
+			FlxModding.reload(true);
+			FlxG.resetState();
+		}
+
 		ScriptsManager.callScript('gameplay_update', [elapsed]);
 	}
 }
