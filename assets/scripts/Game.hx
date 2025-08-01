@@ -3,13 +3,11 @@ package assets.scripts;
 import flixel.FlxG;
 import flixel.FlxSprite;
 
-function scriptsLoaded() {}
 var sprite1:FlxSprite;
 
 function gameplay_create()
 {
-	if (sprite1 == null)
-		sprite1 = new FlxSprite(0, 0).loadGraphic(Assets.getImage('appIcon'));
+	sprite1 = new FlxSprite(0, 0).loadGraphic(Assets.getImage('appIcon'));
 	PlayState.addObject(sprite1);
 }
 
